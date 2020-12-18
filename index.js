@@ -1,7 +1,13 @@
 const express = require('express')
+const morgan = require('morgan')
 const app = express()
 app.use(express.json())
-
+morgan.token('data', (request, response) => {
+  if (request.method === 'POST') {
+    return JSON.stringify(request.body)
+  }
+})
+app.use(morgan(':method :url :status - :response-time ms :data'))
 let persons = [
   {
     name: 'Arto Hellas',
@@ -24,9 +30,10 @@ let persons = [
     id: 4,
   },
 ]
-
+app.get('/', (request, response) => {
+  response.send('<h1>Hello World!</h1>')
+})
 app.get('/info', (request, response) => {
-  console.log(Date())
   response.send(
     `<p>Phonebook has info for 
     ${persons.length} people</p> 
