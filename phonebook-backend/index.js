@@ -72,6 +72,20 @@ app.get('/api/persons/:id', (request, response, next) => {
     .catch((error) => next(error))
 })
 
+app.put('/api/persons/:id', (request, response, next) => {
+  const body = request.body
+  const person = {
+    name: body.name,
+    number: body.number,
+  }
+
+  Person.findByIdAndUpdate(request.params.id, person, { new: true })
+    .then((updatedPerson) => {
+      response.json(updatedPerson)
+    })
+    .catch((error) => next(error))
+})
+
 app.delete('/api/persons/:id', (request, response, next) => {
   // const id = Number(request.params.id)
   // persons = persons.filter((person) => person.id !== id)
@@ -96,15 +110,6 @@ app.post('/api/persons', (request, response) => {
       error: 'number missing',
     })
   }
-  // const isContained = persons.find(
-  //   (person) => person.name === body.name
-  // )
-  // console.log(isContained)
-  // if (isContained) {
-  //   return response.status(400).json({
-  //     error: 'name must be unique',
-  //   })
-  // }
 
   const person = new Person({
     name: body.name,
