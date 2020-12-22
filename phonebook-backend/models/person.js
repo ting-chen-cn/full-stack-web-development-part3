@@ -16,8 +16,22 @@ mongoose
     console.log('error connecting to MongoDB:', error.message)
   })
 const personSchema = new mongoose.Schema({
-  name: { type: String, required: true, unique: true },
-  number: { type: String, required: true },
+  name: {
+    type: String,
+    required: true,
+    unique: true,
+    minlength: 3,
+    uniqueCaseInsensitive: true,
+  },
+  number: {
+    type: String,
+    required: true,
+    minlength: 8,
+    match: [
+      new RegExp('^[0-9-*#+]+$', 'i'),
+      "{PATH} '{VALUE}' is not valid. Use only numbers or *.",
+    ],
+  },
 })
 personSchema.plugin(uniqueValidator, {
   message: 'Error, expected {PATH} to be unique.',
