@@ -29,7 +29,7 @@ const personSchema = new mongoose.Schema({
     minlength: 8,
     match: [
       new RegExp('^[0-9-*#+]+$', 'i'),
-      "{PATH} '{VALUE}' is not valid. Use only numbers or *.",
+      '{PATH} {VALUE} is not valid. Use only numbers or *.',
     ],
   },
 })
