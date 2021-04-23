@@ -1,0 +1,30 @@
+form > div{
+  display: flex;
+  height: 40px;
+  margin:10px;
+  align-items: center; 
+  background-color:lightgray;
+  color: white;
+  border-radius: 5px;
+}
+input{
+  border: none;
+  background-color: transparent;
+  outline-width: 0ch;
+  color: white;
+  flex:1;
+}
+form > button {
+  display:flex;
+  position:relative;
+  left: 40%;
+  height: 30px;
+  width: 80px;
+  margin:10px;
+  align-items: center; 
+  justify-content: center;
+  background-color:rgb(51, 53, 54);
+  color: white;
+  border-radius: 5px;
+  border-color: rgb(23, 24, 26);
+}

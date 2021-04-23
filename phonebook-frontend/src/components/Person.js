@@ -1,18 +1,25 @@
 import React from 'react'
+import './Person.css'
 const Persons = ({ searchedPerson, handelDelete }) => {
   return (
-    <div>
-      <ul>
+    <table>
+      <tr id='tableHeader'>
+        <th>name</th>
+        <th>phone number</th>
+        <th></th>
+      </tr>
         {searchedPerson.map((note, i) => (
-          <li key={note.name}>
-            {note.name}&nbsp;{note.number}
-            <button onClick={() => handelDelete(note.id)}>
-              delete
-            </button>
-          </li>
+          <tr id='tableContext' key={note.name}>
+            <th>{note.name}</th>
+            <th>{note.number}</th>
+            <th>
+              <button onClick={() => handelDelete(note.id)}>
+                delete
+              </button>
+            </th>
+          </tr>
         ))}
-      </ul>
-    </div>
+    </table>
   )
 }
 

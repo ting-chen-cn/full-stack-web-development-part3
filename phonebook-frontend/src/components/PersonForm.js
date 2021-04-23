@@ -1,4 +1,5 @@
 import React from 'react'
+import './PersonForm.css'
 const PersonForm = ({
   addPerson,
   newName,
@@ -10,16 +11,14 @@ const PersonForm = ({
     <div>
       <form onSubmit={addPerson}>
         <div>
-          name:{' '}
-          <input value={newName} onChange={handlePersonChange} />
+          <input placeholder='name' value={newName} onChange={handlePersonChange} />
         </div>
         <div>
-          number:{' '}
-          <input value={newNumber} onChange={handelNumberChange} />
+          <input placeholder='phone number' value={newNumber} onChange={handelNumberChange} />
         </div>
-        <div>
-          <button type='submit'>add</button>
-        </div>
+        <>
+          <button type='submit'>submit</button>
+        </>
       </form>
     </div>
   )

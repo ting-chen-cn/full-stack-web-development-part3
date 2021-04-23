@@ -5,7 +5,7 @@ import Filter from './components/Filter'
 import personService from './services/note'
 import Notification from './components/Notification'
 import ErrorNotification from './components/ErrorNotification'
-import './index.css'
+import './App.css'
 
 const App = () => {
   const [persons, setPersons] = useState([])
@@ -124,11 +124,11 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className='App'>
       <h2>Phonebook</h2>
       <Notification message={message} />
       <ErrorNotification errorMessage={errorMessage} />
-      <Filter
+      <Filter className='Filter'
         newSearchPerson={newSearchPerson}
         handleSearchPerson={handleSearchPerson}
       />
