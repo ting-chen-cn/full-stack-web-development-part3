@@ -1,6 +1,6 @@
 # phonebook
 
-![Screenshot](screenshot.png)
+![Screenshot](Screenshot.png)
 
 This is a sample phone book application create with [Create React App](https://github.com/facebook/create-react-app) (frontend) and [NodeJs](https://nodejs.org/en/)(backend).
 
